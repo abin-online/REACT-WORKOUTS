@@ -63,10 +63,11 @@
 
 
 import Button from './Button'
+import ProfilePicture from './profilePicture'
 
 function App(){
   return(<>
-  <Button/>
+  <ProfilePicture/>
   </>)
 }
 
