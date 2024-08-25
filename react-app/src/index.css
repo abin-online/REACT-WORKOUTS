@@ -94,5 +94,11 @@
   font-size: 2em;
   list-style: none;
   color: hsl(0, 0%, 25%);
-  text-align: ;
+  text-align: center;
+  margin: 0;
+}
+
+.list-items li:hover{
+  color: hsl(185, 100%, 50%);
+  cursor: pointer;
 }

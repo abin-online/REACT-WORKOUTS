@@ -46,11 +46,19 @@ function App() {
   return(
 
     <>
-            <List items = {fruits} category = 'Fruits'/>
-            <List items = {vegetables} category = 'Vegetables'/>
+            {fruits.length > 0 && <List category = 'Fruits'/> }
+            {vegetables.length > 0 && <List items = {vegetables} category = 'Vegetables'/>}
     </>
   
   );
+}
+
+
+
+List.defaultProps = {
+  category: "Category",
+  items : []
+
 }
 
 export default App
