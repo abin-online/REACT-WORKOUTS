@@ -62,15 +62,32 @@
 // }
 
 
-import Button from './Button'
-import ProfilePicture from './profilePicture'
+// import Button from './Button'
+// import ProfilePicture from './profilePicture'
 
-function App(){
-  return(<>
-  <ProfilePicture/>
-  </>)
+// function App(){
+//   return(<>
+//   <ProfilePicture/>
+//   </>)
+// }
+
+
+// export default App
+
+// import MyComponent from "./myComponents"
+
+
+// function App(){
+//     return(<MyComponent/>)
+// }
+
+// export default App
+
+import Counter from "./Counter"
+
+function  App() {
+    return(<Counter/>)
 }
-
 
 export default App
 
