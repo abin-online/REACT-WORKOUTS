@@ -83,11 +83,27 @@
 
 // export default App
 
-import Counter from "./Counter"
+// import Counter from "./Counter"
+
+// function  App() {
+//     return(<Counter/>)
+// }
+
+// export default App
+
+// import MyComponent from './myComponents' 
+
+// function  App() {
+//     return(<MyComponent/>)
+// }
+
+// export default App
+
+
+import ColorPicker from "./ColorPicker"
 
 function  App() {
-    return(<Counter/>)
+    return(<ColorPicker/>)
 }
 
 export default App
-
