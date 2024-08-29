@@ -100,10 +100,77 @@
 // export default App
 
 
-import ColorPicker from "./ColorPicker"
+// import ColorPicker from "./ColorPicker"
 
-function  App() {
-    return(<ColorPicker/>)
+// function  App() {
+//     return(<ColorPicker/>)
+// }
+
+// export default App
+
+// import DivShow from "./div";
+// import Header from "./HeaderName";
+
+// function App(){
+//     const data = "Abin"
+//     return(
+            
+//                 <Header data={data}/>
+            
+//         )
+// }
+
+// export default App
+
+// import { useState } from "react"
+
+// function App() {
+
+//     const [count , setCount] = useState(0)
+//     const addButton = ()=>{
+//         setCount(count+1)
+//     }
+//     const subButton = ()=>{
+//         setCount(count-1)
+//     }
+//     const resetButton = ()=>{
+//         setCount(0)
+//     }
+//     return(
+//           <div className="counter">
+//             <h1>{count}</h1>
+//             <button onClick={addButton}>INCREMENT</button>
+//             <button onClick={resetButton}>RESET</button>
+//             <button onClick={subButton}>DECREMENT</button>
+//             </div>
+        
+//     )
+
+// }
+
+// export default App
+
+
+
+import Employee from './Employee'
+
+function App() {
+    let emp = [{name: 'Abin', age: 22} , {name: 'Satish' , age: 30} , {name: 'Vick' , age: 21}]
+  return (
+    <div className='App'>
+        {   
+            emp.map((x, i)=>
+                (
+                    <>
+                        <Employee key = {i} name = {x.name} age = {x.age}/>
+                        <Employee key = {i} {...x}/>
+                    </>
+                )
+            )
+        }
+    </div>
+  )
 }
 
 export default App
+
