@@ -1,0 +1,16 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "React practice",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "react",
+    "abin",
+    "babu"
+  ],
+  "author": "Abin Babu",
+  "license": "ISC"
+}
