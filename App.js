@@ -3,9 +3,11 @@
 // root.render(heading)
 // console.log(heading); //heading
 
+import React from "react";
+import ReactDOM from 'react-dom/client'
 
 const parent = React.createElement("div", {id:"parent"} ,[
-                React.createElement("h2", {id:"child1"} ,"This is H2" ),
+                React.createElement("h2", {id:"child1"} ,"Eda Mone" ),
                 React.createElement("h1", {id:"child2"} ,"This is H1" )
             ])
 
