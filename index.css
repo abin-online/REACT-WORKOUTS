@@ -56,7 +56,7 @@ li {
     border-right: hidden;
   }
   
-  .filter {
+  .filter-btn {
     display: flex;
     align-items:self-end;
     padding: 6px 12px;      
@@ -68,7 +68,7 @@ li {
     
   }
   
-  .filter:hover {
+  .filter-btn:hover {
     background-color: #0056b3; 
   }
   
