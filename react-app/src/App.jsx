@@ -151,24 +151,12 @@
 // export default App
 
 
-
-import Employee from './Employee'
+import Counter from "./Counter"
 
 function App() {
     let emp = [{name: 'Abin', age: 22} , {name: 'Satish' , age: 30} , {name: 'Vick' , age: 21}]
   return (
-    <div className='App'>
-        {   
-            emp.map((x, i)=>
-                (
-                    <>
-                        <Employee key = {i} name = {x.name} age = {x.age}/>
-                        <Employee key = {i} {...x}/>
-                    </>
-                )
-            )
-        }
-    </div>
+    <Counter/>
   )
 }
 

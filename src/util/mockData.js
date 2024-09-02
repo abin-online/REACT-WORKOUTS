@@ -1183,7 +1183,8 @@ let resList = [
             }
         },
         "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-    }
+    },
+    
 ]
 
 
