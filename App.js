@@ -6,6 +6,10 @@ import './index.css'
 import Header from './src/component/Header'
 import Body from "./src/component/Body";
 
+import CounterApp from "./src/component/CounterApp";
+import AutoIncrementCounter from "./src/component/AutoIncrement";
+
+
 
 const AppLayout = () => {
     return (

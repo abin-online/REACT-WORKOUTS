@@ -1,47 +1,54 @@
 import { useEffect, useState } from "react";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass , faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 import RestaurantCard from "./RestaurantCard";
 import resList from "../util/mockData";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
-  
-    const [restaurantList , setrestaurantList] = useState(resList)
-    
-    useEffect(()=>{
+
+    const [restaurantList, setrestaurantList] = useState([])
+
+    useEffect(() => {
         fetchData()
     }, [])
 
     const fetchData = async () => {
-        const data = await fetch("https://www.swiggy.com/mapi/homepage/getCards?lat=9.91850&lng=76.25580");
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=9.91850&lng=76.25580&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
-    
-        //console.log("hii",json.data.success.cards[1].gridWidget.gridElements.infoWithStyle.restaurants);
-        setrestaurantList(json.data.success.cards[1].gridWidget.gridElements.infoWithStyle.restaurants)
+        let fetchedArray = json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+        let dataArray = []
+        for (let i = 0; i < fetchedArray.length; i++) {
+            dataArray.push(fetchedArray[i].info)
+        }
+
+        console.log(dataArray)
+
+        setrestaurantList(dataArray)
+
     };
-    
-    if(restaurantList.length === 0) {
-            return(<h1>LOADING</h1>)
-    }
-    return (
+
+    //conditional rendering
+
+    return restaurantList.length === 0 ? ( <Shimmer/>   ) : (
         <div className="body">
             <span className="search-filter">
-            <div className="search"><FontAwesomeIcon icon={faMagnifyingGlass} /> Search</div>
-            <button className="filter-btn" 
-                    onClick={()=> {
-                        const filteredList = restaurantList.filter(res=> res.avgRating > 4.5); 
+                <div className="search"><FontAwesomeIcon icon={faMagnifyingGlass} /> Search</div>
+                <button className="filter-btn"
+                    onClick={() => {
+                        const filteredList = restaurantList.filter(res => res.avgRating > 4.5);
                         setrestaurantList(filteredList)
-                        }}
-                    >
-                        Top Rated Restaurant
-            </button>
+                    }}
+                >
+                    Top Rated Restaurant
+                </button>
             </span>
             <div className="res-container">
                 {
-                    restaurantList.map((restaurant) => 
-                    <RestaurantCard key ={restaurant.id} data={restaurant}/>)
+                    restaurantList.map((restaurant) =>
+                        <RestaurantCard key={restaurant.id} data={restaurant} />)
                 }
             </div>
         </div>

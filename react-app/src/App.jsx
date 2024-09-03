@@ -5,14 +5,16 @@
 // import Button from "./Button"
 // import Student from "./Student"
 
-{/* <Student name ="Abin Babu" age = {30} isStudent = {false}/>
+import { useState } from "react";
+
+{
+  /* <Student name ="Abin Babu" age = {30} isStudent = {false}/>
 <Student name ="Patrick" age = {42} isStudent = {true}/>
 <Student name ="Fedrick" age = {23} isStudent = {true}/>
 <Student name ="Rozario" age = {32} isStudent = {false}/>
 <Student name ="Milan" age = {33} isStudent = {true}/>
-<Student name = "Arjun"/> */}
-
-
+<Student name = "Arjun"/> */
+}
 
 // import UserGreeting from './UserGreeting.jsx'
 
@@ -25,8 +27,6 @@
 // }
 
 // export default App
-
-
 
 // import List from './List.jsx'
 
@@ -49,18 +49,15 @@
 //             {fruits.length > 0 && <List category = 'Fruits'/> }
 //             {vegetables.length > 0 && <List items = {vegetables} category = 'Vegetables'/>}
 //     </>
-  
+
 //   );
 // }
-
-
 
 // List.defaultProps = {
 //   category: "Category",
 //   items : []
 
 // }
-
 
 // import Button from './Button'
 // import ProfilePicture from './profilePicture'
@@ -71,11 +68,9 @@
 //   </>)
 // }
 
-
 // export default App
 
 // import MyComponent from "./myComponents"
-
 
 // function App(){
 //     return(<MyComponent/>)
@@ -91,14 +86,13 @@
 
 // export default App
 
-// import MyComponent from './myComponents' 
+// import MyComponent from './myComponents'
 
 // function  App() {
 //     return(<MyComponent/>)
 // }
 
 // export default App
-
 
 // import ColorPicker from "./ColorPicker"
 
@@ -114,9 +108,9 @@
 // function App(){
 //     const data = "Abin"
 //     return(
-            
+
 //                 <Header data={data}/>
-            
+
 //         )
 // }
 
@@ -143,22 +137,59 @@
 //             <button onClick={resetButton}>RESET</button>
 //             <button onClick={subButton}>DECREMENT</button>
 //             </div>
-        
+
 //     )
 
 // }
 
 // export default App
 
+// import Counter from "./Counter"
 
-import Counter from "./Counter"
+// function App() {
+//   const [count, setCount] = useState(0);
+//   const [message , setMessage] = useState('')
+//   return (
+//     <div>
+//       <h1>{count}</h1>
+//       <button onClick={() => setCount(count + 1)}>INCREMENT</button>
+//       <button onClick={() => setCount(count - 1)}>DECREMENT</button>
+//     </div>
+//   );
+// }
 
-function App() {
-    let emp = [{name: 'Abin', age: 22} , {name: 'Satish' , age: 30} , {name: 'Vick' , age: 21}]
-  return (
-    <Counter/>
-  )
+// export default App;
+
+// function App() {
+//   const [username , setUsername] = useState('')
+//   const [submit , setSubmit ] = useState(false)
+//   const handleSubmit = (e)=> {
+//     e.preventDefault()
+//     if(username.length < 6){
+//       setSubmit(true)
+//     }
+//   }
+//   return (
+//     <div style={{textAlign: 'center' , marginTop: '400px' , display: 'flex'}}>
+//       <form oncLick={handleSubmit}>
+//         <div>
+//           <input type="text" value={username} onChange={(e)=>setUsername(e.target.value)}/>
+//           { username.length < 6 && <p style={{color: 'red'}}>username should have atleast 6 letters</p>}
+//           {submit && <p style={{color: 'green'}}>submitted</p>}
+//           <button style={{width:'60px' , height: '30px'}} disabled={username.length < 6}>submit</button>
+//         </div>
+//       </form>
+//     </div>
+//   )
+// }
+
+// export default App
+
+import Dashboard from "./Toggle";
+function App () {
+    return(
+      <Dashboard/>
+    )
 }
 
 export default App
-
