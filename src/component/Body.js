@@ -10,6 +10,7 @@ import Shimmer from "./Shimmer";
 const Body = () => {
 
     const [restaurantList, setrestaurantList] = useState([])
+    
 
     useEffect(() => {
         fetchData()
@@ -29,13 +30,20 @@ const Body = () => {
         setrestaurantList(dataArray)
 
     };
+    const [searchItem , setSearchItem] = useState(restaurantList)
 
     //conditional rendering
+    const searchElements = ()=>{
+        const searchedList = restaurantList.filter((x)=> x.name.toLowerCase().includes(searchItem.toLowerCase()))
+        setSearchItem(searchedList)
+    }
+
+    console.log(restaurantList)
 
     return restaurantList.length === 0 ? ( <Shimmer/>   ) : (
         <div className="body">
             <span className="search-filter">
-                <div className="search"><FontAwesomeIcon icon={faMagnifyingGlass} /> Search</div>
+                <input type="text" className="search" placeholder="Search items..." onChange={(e)=> setSearchItem(e.target.value)} onkeyup={searchElements}/>
                 <button className="filter-btn"
                     onClick={() => {
                         const filteredList = restaurantList.filter(res => res.avgRating > 4.5);

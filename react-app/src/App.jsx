@@ -185,10 +185,17 @@ import { useState } from "react";
 
 // export default App
 
-import Dashboard from "./Toggle";
+// import Dashboard from "./Toggle";
+ import ParentComponent from "./ParentComponent";
+
 function App () {
+
     return(
-      <Dashboard/>
+      <>
+         <ParentComponent/>
+            
+      </>
+
     )
 }
 
