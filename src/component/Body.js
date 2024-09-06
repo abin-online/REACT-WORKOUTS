@@ -10,7 +10,8 @@ import Shimmer from "./Shimmer";
 const Body = () => {
 
     const [restaurantList, setrestaurantList] = useState([])
-    
+    const [filteredRestaurant , setFilteredRestaurant] = useState([]) //filtering out the item
+    const [searchItem, setSearchItem] = useState("")
 
     useEffect(() => {
         fetchData()
@@ -28,22 +29,23 @@ const Body = () => {
         console.log(dataArray)
 
         setrestaurantList(dataArray)
+        setFilteredRestaurant(dataArray)
 
     };
-    const [searchItem , setSearchItem] = useState(restaurantList)
-
-    //conditional rendering
-    const searchElements = ()=>{
-        const searchedList = restaurantList.filter((x)=> x.name.toLowerCase().includes(searchItem.toLowerCase()))
-        setSearchItem(searchedList)
-    }
 
     console.log(restaurantList)
 
-    return restaurantList.length === 0 ? ( <Shimmer/>   ) : (
+    return restaurantList.length === 0 ? (<Shimmer />) : (
         <div className="body">
             <span className="search-filter">
-                <input type="text" className="search" placeholder="Search items..." onChange={(e)=> setSearchItem(e.target.value)} onkeyup={searchElements}/>
+                <input placeholder="Search items..." value={searchItem}
+                onChange={(e)=>setSearchItem(e.target.value)}
+                onKeyDown={()=>{
+                    const filteredArray = restaurantList.filter((res)=> res.name.toLowerCase().includes(searchItem.toLowerCase()))
+                    setFilteredRestaurant(filteredArray)
+                }}
+                />
+
                 <button className="filter-btn"
                     onClick={() => {
                         const filteredList = restaurantList.filter(res => res.avgRating > 4.5);
@@ -55,7 +57,7 @@ const Body = () => {
             </span>
             <div className="res-container">
                 {
-                    restaurantList.map((restaurant) =>
+                    filteredRestaurant.map((restaurant) =>
                         <RestaurantCard key={restaurant.id} data={restaurant} />)
                 }
             </div>
