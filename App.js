@@ -5,17 +5,18 @@ import './index.css'
 
 import Header from './src/component/Header'
 import Body from "./src/component/Body";
-
-import CounterApp from "./src/component/CounterApp";
-import AutoIncrementCounter from "./src/component/AutoIncrement";
-
-import { createBrowserRouter , RouterProvider} from "react-router-dom";
 import About from "./src/component/About";
+import Contact from "./src/component/Contact";
+import Error from "./src/component/Error";
+import RestaurantMenu from "./src/component/RestaurantMenu";
+
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 const AppLayout = () => {
     return (
         <div className="app">
             <Header />
-            <Body />
+            <Outlet />
+
         </div>
     )
 }
@@ -23,13 +24,29 @@ const AppLayout = () => {
 const appRouter = createBrowserRouter([
     {
         path: '/',
-        element: <AppLayout/>
-    },
-    {
-        path: '/about',
-        element: <About/>
+        element: <AppLayout/>,
+        children: [
+            {
+                path: '/',
+                element: <Body/>
+            },
+            {
+                path: '/about',
+                element: <About/>
+            },
+            {
+                path: '/contact',
+                element: <Contact/>
+            },
+            {
+                path: '/restaurants/:resId',
+                element: <RestaurantMenu />
+            }
+        ],
+
+        errorElement: <Error/>
     }
 ])
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
-root.render(<AppLayout />)
+root.render(<RouterProvider router={appRouter} />)

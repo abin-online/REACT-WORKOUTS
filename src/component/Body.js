@@ -6,7 +6,7 @@ import { faMagnifyingGlass, faAngleDown } from '@fortawesome/free-solid-svg-icon
 import RestaurantCard from "./RestaurantCard";
 import resList from "../util/mockData";
 import Shimmer from "./Shimmer";
-
+import { Link } from "react-router-dom"
 const Body = () => {
 
     const [restaurantList, setrestaurantList] = useState([])
@@ -58,7 +58,7 @@ const Body = () => {
             <div className="res-container">
                 {
                     filteredRestaurant.map((restaurant) =>
-                        <RestaurantCard key={restaurant.id} data={restaurant} />)
+                        <Link className="res-card-link" to={"/restaurants/"+ restaurant.id}><RestaurantCard key={restaurant.id} data={restaurant} /> </Link>)
                 }
             </div>
         </div>

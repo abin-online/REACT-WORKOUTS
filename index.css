@@ -31,7 +31,14 @@ li {
     margin: 10px;
     font-size: 20px;
     font-weight: 700;
+    
 }
+
+.menu-items a {
+    text-decoration: none;
+    color: inherit;  
+}
+
 
 .body{
     justify-content: center;
@@ -93,6 +100,12 @@ li {
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     line-height: normal;
+    
+}
+
+.res-card-link {
+    text-decoration: none;
+    color: inherit;  
 }
 
 .cuisines{
