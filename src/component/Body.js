@@ -7,6 +7,8 @@ import RestaurantCard from "./RestaurantCard";
 import resList from "../util/mockData";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom"
+import useOnlineStatus from "../util/useOnlineStatus";
+
 const Body = () => {
 
     const [restaurantList, setrestaurantList] = useState([])
@@ -35,10 +37,15 @@ const Body = () => {
 
     console.log(restaurantList)
 
+    const onlineStatus = useOnlineStatus()
+    if(!onlineStatus) return (
+        <h1>Your Offline, Please Check Your Internet Connection</h1>
+    )
+
     return restaurantList.length === 0 ? (<Shimmer />) : (
         <div className="body">
             <span className="search-filter">
-                <input placeholder="Search items..." value={searchItem}
+                <faMagnifyingGlass/><input placeholder="Search items..." value={searchItem}
                 onChange={(e)=>setSearchItem(e.target.value)}
                 onKeyDown={()=>{
                     const filteredArray = restaurantList.filter((res)=> res.name.toLowerCase().includes(searchItem.toLowerCase()))

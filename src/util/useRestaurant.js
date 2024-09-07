@@ -5,15 +5,15 @@ import { MENU_API } from "./constant";
 const useRestaurnatMenu = (resId)=> {
     
     const [resInfo , setResInfo] = useState(null)
-    
+
     useEffect(()=>{
-        fetchMenu()
+        fetchMenu();
     },[])
 
     const fetchMenu = async ()=>{
-        const data = await fetch({MENU_API} + {resId})
-        const json = await data.json()
-        setResInfo(json)
+        const data = await fetch(`${MENU_API}${resId}`);
+        const dataLoaded = await data.json();
+        setResInfo(dataLoaded)
     }
 
     return resInfo;

@@ -9,19 +9,8 @@ import useRestaurnatMenu from "../util/useRestaurant";
 
 function RestaurantMenu() {
 
-    //const [resInfo , setResInfo] = useState(null)
     const {resId} = useParams()
     console.log(resId)
-
-    // useEffect(()=>{
-    //     fetchMenu();
-    // },[])
-
-    // const fetchMenu = async ()=>{
-    //     const data = await fetch(`${MENU_API}${resId}`);
-    //     const dataLoaded = await data.json();
-    //     setResInfo(dataLoaded)
-    // }
 
     const resInfo = useRestaurnatMenu(resId)
 
