@@ -11,7 +11,6 @@ import Error from "./src/component/Error";
 import RestaurantMenu from "./src/component/RestaurantMenu";
 import Shimmer from "./src/component/Shimmer";
 
-//import Grocery from "./src/component/Grocery";
 
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 const AppLayout = () => {
