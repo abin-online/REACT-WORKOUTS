@@ -10,27 +10,28 @@ const Header = () => {
         console.log('useEffect called...')
     },[])
     return (
-        <div className="header">
+        <div className="flex justify-between shadow-lg mb-2">
             <div className="logo-container">
-                <img className="logo"
+                <img className="w-48"
                     src={LOGO_URL} />
             </div>
-            <div className="nav-items">
-                <ul className="menu-items">
-                    <li>
+            <div className="flex items-center">
+                <ul className="flex p-4 m-12 gap-10 text-xl font-medium ">
+                    <li className="transfrom hover:scale-105 transition duration-300">
                         <Link to='/'>HOME</Link>
                     </li>
-                    <li>
+                    <li className="transfrom hover:scale-105 transition duration-300">
                         <Link to='/about'>ABOUT US</Link>
                         </li>
-                    <li>
+                    <li className="transfrom hover:scale-105 transition duration-300">
                         <Link to='/contact'>CONTACT</Link>
                     </li>
-                    <li>
+                    <li className="transfrom hover:scale-105 transition duration-300">
                         <Link to="/grocery">GROCERY</Link>
                     </li>
-                    <li>CART</li>
-                    <button className="login" onClick={()=>{ btnNameReact === 'LOGIN' ? setBtnNameReact('LOGOUT') : setBtnNameReact('LOGIN')  }}>{btnNameReact}</button>
+                    <li className="transfrom hover:scale-105 transition duration-300">
+                        CART</li>
+                    <button className=" border-width: 4px; border-black " onClick={()=>{ btnNameReact === 'LOGIN' ? setBtnNameReact('LOGOUT') : setBtnNameReact('LOGIN')  }}>{btnNameReact}</button>
                 </ul>
             </div>
         </div>
