@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard ,{withPromotedLabel} from "./RestaurantCard";
 import resList from "../util/mockData";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom"
@@ -14,6 +14,7 @@ const Body = () => {
     const [restaurantList, setrestaurantList] = useState([])
     const [filteredRestaurant , setFilteredRestaurant] = useState([]) //filtering out the item
     const [searchItem, setSearchItem] = useState("")
+    const IsPromoted = withPromotedLabel(RestaurantCard)
 
     useEffect(() => {
         fetchData()
@@ -66,9 +67,15 @@ const Body = () => {
                 </button>
             </span>
             <div className=" flex flex-wrap ">
-                {
-                    filteredRestaurant.map((restaurant) =>
-                        <Link className="res-card-link" to={"/restaurants/"+ restaurant.id}><RestaurantCard key={restaurant.id} data={restaurant} /> </Link>)
+                {   
+                    filteredRestaurant.map((restaurant) => 
+                    <Link key={restaurant.id} className="res-card-link" to={"/restaurants/"+ restaurant.id}>
+                        {!restaurant.isOpen ? 
+                        (<RestaurantCard  data={restaurant} /> ):
+                        (<IsPromoted  data={restaurant} />)
+                        }
+                    </Link>
+                )
                 }
             </div>
         </div>
