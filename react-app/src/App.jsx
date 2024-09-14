@@ -5,7 +5,7 @@
 // import Button from "./Button"
 // import Student from "./Student"
 
-import { useState } from "react";
+//import { useState } from "react";
 
 {
   /* <Student name ="Abin Babu" age = {30} isStudent = {false}/>
@@ -186,17 +186,37 @@ import { useState } from "react";
 // export default App
 
 // import Dashboard from "./Toggle";
- import ParentComponent from "./ParentComponent";
+//  import ParentComponent from "./ParentComponent";
 
-function App () {
+// function App () {
 
-    return(
-      <>
-         <ParentComponent/>
+//     return(
+//       <>
+//          <ParentComponent/>
             
-      </>
+//       </>
 
-    )
+//     )
+// }
+
+// export default App
+
+
+
+import React, { useCallback, useState } from 'react'
+import IncrementButton from './IncrementButton'
+
+const App = () => {
+  const [count , setCount] = useState(0)
+  const increment = useCallback(() => {
+    setCount((prevCount) => prevCount+1)
+  }, [])
+  return (
+    <div>
+      <h2>COUNT : {count}</h2>
+      <IncrementButton increment={increment}/>
+    </div>
+  )
 }
 
 export default App
