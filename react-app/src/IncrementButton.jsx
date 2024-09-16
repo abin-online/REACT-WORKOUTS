@@ -1,7 +1,6 @@
 import React from 'react'
 
 const IncrementButton = React.memo(({increment}) => {
-
   return (
     <div>
       <button onClick={increment}>INCREMENT</button>
@@ -10,3 +9,6 @@ const IncrementButton = React.memo(({increment}) => {
 })
 
 export default IncrementButton
+
+
+

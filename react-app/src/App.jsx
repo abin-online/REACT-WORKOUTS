@@ -16,6 +16,7 @@
 <Student name = "Arjun"/> */
 }
 
+import { Container } from 'postcss'
 // import UserGreeting from './UserGreeting.jsx'
 
 // function App() {
@@ -203,20 +204,55 @@
 
 
 
-import React, { useCallback, useState } from 'react'
-import IncrementButton from './IncrementButton'
+// import React, { useCallback, useState } from 'react'
+// import IncrementButton from './IncrementButton'
+
+// const App = () => {
+//   const [count , setCount] = useState(0)
+//   const increment = useCallback(()=>{
+//     setCount((prevCount)=> prevCount+1)
+//   },[])
+//   return (
+//     <div>
+//       <h3>{count}</h3>
+//       <IncrementButton increment={increment}/>
+//     </div>
+//   )
+// }
+
+// export default App
+
+// import React, { useMemo, useState } from 'react'
+
+// const App = () => {
+//   const [array, setArray] = useState([1,2,3,4,5,6])
+//   const memoized = useMemo(()=> {
+//     return array.reduce((acc,curr)=> acc+curr)
+//   },[array])
+//   return (
+//     <div>
+//         <h2>{memoized}</h2>
+//         <button onClick={()=> setArray([2,4,5,3,8])}>Change Array</button>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+// App.js
+
+import React from 'react'
+import Container1 from './Container1'
 
 const App = () => {
-  const [count , setCount] = useState(0)
-  const increment = useCallback(() => {
-    setCount((prevCount) => prevCount+1)
-  }, [])
   return (
     <div>
-      <h2>COUNT : {count}</h2>
-      <IncrementButton increment={increment}/>
+      <Container1/>
     </div>
   )
 }
 
 export default App
+
