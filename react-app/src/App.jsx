@@ -243,16 +243,30 @@ import { Container } from 'postcss'
 
 // App.js
 
+// import React from 'react'
+// import { ParentProvider } from './ParentProvider'
+
+// const App = () => {
+//   return (
+//     <div>
+//         <ParentProvider />
+//     </div>
+//   )
+// }
+
+// export default App
+
 import React from 'react'
-import Container1 from './Container1'
+import Parent from './Parent'
 
 const App = () => {
   return (
     <div>
-      <Container1/>
+      <Parent/>
     </div>
   )
 }
 
 export default App
+
 

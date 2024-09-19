@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import { ThemeContext } from './Container1'
 
 const Container3 = () => {
-    const theme = useContext(ThemeContext)
+    const {theme} = useContext(ThemeContext)
     const textStyle = {
         backgroundColor : theme === 'light' ? 'black': 'white',
         color: theme === 'light' ? 'white' : 'black'

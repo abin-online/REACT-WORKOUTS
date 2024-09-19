@@ -11,9 +11,9 @@ const Container1 = () => {
     const changeTheme = ()=> {
         setTheme((theme)=> theme=== 'light' ? 'dark' : 'light');
     }
-
+   
   return (
-    <ThemeContext.Provider value={theme}>
+    <ThemeContext.Provider value={{theme}}>
         <button onClick={changeTheme}>Change Theme</button>
         <h1>Container 1</h1>
         <Container2/>
