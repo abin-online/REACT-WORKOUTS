@@ -43,6 +43,13 @@ const Body = () => {
         <h1>Your Offline, Please Check Your Internet Connection</h1>
     )
 
+    const sortByTime = ()=>{
+
+        const sortedFilteredList = restaurantList.sort((a,b)=> new Date(a.availability.nextCloseTime) - new Date(b.vailability.nextCloseTime) )
+        setrestaurantList(sortedFilteredList)
+
+    }
+
     return restaurantList.length === 0 ? (<Shimmer />) : (
         <div className="body">
             <span className="justify-between ">
@@ -65,6 +72,7 @@ const Body = () => {
                 >
                     Top Rated Restaurant
                 </button>
+                <button onClick={sortByTime}>Sort By Closing Time</button>
             </span>
             <div className=" flex flex-wrap ">
                 {   
