@@ -194,15 +194,13 @@
 // //     return(
 // //       <>
 // //          <ParentComponent/>
-            
+
 // //       </>
 
 // //     )
 // // }
 
 // // export default App
-
-
 
 // // import React, { useCallback, useState } from 'react'
 // // import IncrementButton from './IncrementButton'
@@ -238,8 +236,6 @@
 // // }
 
 // // export default App
-
-
 
 // // App.js
 
@@ -282,19 +278,34 @@
 
 // export default App
 
+// src/App.jsx
 
+// import React, { useState } from 'react'
+// import TimerComponent from './TimerComponent'
 
+// const App = () => {
+//   const [show , setShow] = useState(true)
 
+//   return (
+//     <div>
+//       {show && <TimerComponent/>}
 
-import React from 'react'
-import ReduceCounter from './ReduceCounter'
+//       <button onClick={()=> setShow(!show)}>Toggle</button>
+//     </div>
+//   )
+// }
 
+// export default App
+
+import React from "react";
+import Dummy from "./dummy";
+import RedCounter from "./dummy";
 const App = () => {
   return (
-    <div>
-      <ReduceCounter/>
-    </div>
-  )
-}
+    <>
+      <Dummy/>
+    </>
+  );
+};
 
-export default App
+export default App;
