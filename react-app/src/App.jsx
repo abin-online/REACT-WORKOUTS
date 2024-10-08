@@ -299,11 +299,11 @@
 
 import React from "react";
 import Dummy from "./dummy";
-import RedCounter from "./dummy";
+import FetchData from "./FetchData";
 const App = () => {
   return (
     <>
-      <Dummy/>
+      <FetchData/>
     </>
   );
 };
