@@ -51,42 +51,51 @@ const Body = () => {
     }
 
     return restaurantList.length === 0 ? (<Shimmer />) : (
-        <div className="body">
-            <span className="justify-between ">
-                <faMagnifyingGlass/>
-                <input placeholder="Search items..."
-                className="w-96 h-10 border-2 rounded-md m-10 "
+        <div className="body flex justify-center items-center min-h-screen p-4">
+    <div className="w-full max-w-7xl">
+        <span className="flex justify-between items-center mb-4">
+            <faMagnifyingGlass/>
+            <input 
+                placeholder="Search items..."
+                className="w-96 h-10 border-2 rounded-md m-2"
                 value={searchItem}
-                onChange={(e)=>setSearchItem(e.target.value)}
-                onKeyDown={()=>{
-                    const filteredArray = restaurantList.filter((res)=> res.name.toLowerCase().includes(searchItem.toLowerCase()))
-                    setFilteredRestaurant(filteredArray)
+                onChange={(e) => setSearchItem(e.target.value)}
+                onKeyDown={() => {
+                    const filteredArray = restaurantList.filter((res) => res.name.toLowerCase().includes(searchItem.toLowerCase()));
+                    setFilteredRestaurant(filteredArray);
                 }}
-                />
-
-                <button className="float-right m-10 border-2 rounded-xl w-[200px] h-10 shadow-xl text-white bg-indigo-700 hover:bg-blue-800 hover:shadow-2xl transfrom hover:scale-105 transition duration-300"
-                    onClick={() => {
-                        const filteredList = restaurantList.filter(res => res.avgRating > 4.5);
-                        setrestaurantList(filteredList)
-                    }}
-                >
-                    Top Rated Restaurant
-                </button>
-                <button onClick={sortByTime}>Sort By Closing Time</button>
-            </span>
-            <div className=" flex flex-wrap ">
-                {   
-                    filteredRestaurant.map((restaurant) => 
-                    <Link key={restaurant.id} className="res-card-link" to={"/restaurants/"+ restaurant.id}>
+            />
+            <button 
+                className="border-2 rounded-xl w-[200px] h-10 shadow-xl text-white bg-indigo-700 hover:bg-blue-800 hover:shadow-2xl transform hover:scale-105 transition duration-300"
+                onClick={() => {
+                    const filteredList = restaurantList.filter(res => res.avgRating > 4.5);
+                    setRestaurantList(filteredList);
+                }}
+            >
+                Top Rated Restaurant
+            </button>
+            <button 
+                className="ml-4 border-2 rounded-xl h-10 px-4 bg-gray-200 hover:bg-gray-300 transition duration-300"
+                onClick={sortByTime}
+            >
+                Sort By Closing Time
+            </button>
+        </span>
+        <div className="flex flex-wrap justify-center">
+            {
+                filteredRestaurant.map((restaurant) => 
+                    <Link key={restaurant.id} className="res-card-link" to={"/restaurants/" + restaurant.id}>
                         {!restaurant.isOpen ? 
-                        (<RestaurantCard  data={restaurant} /> ):
-                        (<IsPromoted  data={restaurant} />)
+                            (<RestaurantCard data={restaurant} />) :
+                            (<IsPromoted data={restaurant} />)
                         }
                     </Link>
                 )
-                }
-            </div>
+            }
         </div>
+    </div>
+</div>
+
     );
 };
 
